@@ -1,26 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <parent>
-        <artifactId>spring-cloud-dubbo-demo-consumer</artifactId>
-        <groupId>cn.springcloud.dubbo</groupId>
-        <version>1.0.0</version>
-    </parent>
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<parent>
+		<artifactId>spring-cloud-dubbo-demo-consumer</artifactId>
+		<groupId>cn.springcloud.dubbo</groupId>
+		<version>1.0.0</version>
+	</parent>
+	<modelVersion>4.0.0</modelVersion>
 
-    <artifactId>spring-cloud-dubbo-demo-consumer-service</artifactId>
+	<artifactId>spring-cloud-dubbo-demo-consumer-service</artifactId>
+	<properties>
+		<spring.boot.version>2.3.2.RELEASE</spring.boot.version>
+		<spring.cloud.version>Hoxton.SR9</spring.cloud.version>
+		<dubbo-spring-boot-starter.version>0.2.0</dubbo-spring-boot-starter.version>
+		<dubbo.version>2.6.2</dubbo.version>
+	</properties>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring.cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<dependencies>
+		<dependency>
+			<groupId>cn.springcloud.dubbo</groupId>
+			<artifactId>spring-cloud-dubbo-starter</artifactId>
+		</dependency>
 
-    <dependencies>
-        <dependency>
-            <groupId>cn.springcloud.dubbo</groupId>
-            <artifactId>spring-cloud-dubbo-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.springcloud.dubbo</groupId>
-            <artifactId>spring-cloud-dubbo-demo-provider-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>cn.springcloud.dubbo</groupId>
+			<artifactId>spring-cloud-dubbo-demo-provider-api</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+	</dependencies>
 </project>
